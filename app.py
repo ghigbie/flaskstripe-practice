@@ -12,5 +12,5 @@ def index():
     return render_template('index.html', public_key=public_key)
 
 @app.route('/thankyou')
-def index():
+def thankyou():
     return render_template('thankyou.html')
