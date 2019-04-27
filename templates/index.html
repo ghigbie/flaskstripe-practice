@@ -4,7 +4,9 @@
 
 <h1>Welcome to Our Donation Page!</h1>
 <h2>Would you like to donate?
-    <form action="{{ url_for('payment')} }" method="POST">
+    {# THIS IS A TEST KEY. TO FIND YOUR OWN KEY, LOG IN TO YOUR STRIPE ACCOUNT
+      THEN GO TO: https://stripe.com/docs/quickstart #}
+    <form action="{{url_for('payment')}}" method="POST">
         <script
             src="https://checkout.stripe.com/checkout.js"
             class="strip-button"
