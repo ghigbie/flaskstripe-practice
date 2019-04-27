@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 import stripe 
 
 app = Flask(__name__)
@@ -14,3 +14,20 @@ def index():
 @app.route('/thankyou')
 def thankyou():
     return render_template('thankyou.html')
+
+@app.route('/payment', methods=['POST'])
+def payment():
+    customer = stripe.Customer.create(email=request.form['stripeEmail'],
+                                      source=request.form['stripeToken'])
+
+    charge = stripe.Charge.create(
+            customer=customer.id,
+            amount=1999,
+            currency='usd',
+            description='Donation'
+    )
+    
+    return redirect(url_for('thankyou'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
