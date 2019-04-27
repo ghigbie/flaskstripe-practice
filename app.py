@@ -15,6 +15,10 @@ def index():
 def thankyou():
     return render_template('thankyou.html')
 
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
 @app.route('/payment', methods=['POST'])
 def payment():
     customer = stripe.Customer.create(email=request.form['stripeEmail'],
