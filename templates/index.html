@@ -3,13 +3,13 @@
 {% block content %}
 
 <h1>Welcome to Our Donation Page!</h1>
-<h2>Would you like to donate?
+<h2>Would you like to donate?</h2>
     {# THIS IS A TEST KEY. TO FIND YOUR OWN KEY, LOG IN TO YOUR STRIPE ACCOUNT
       THEN GO TO: https://stripe.com/docs/quickstart #}
     <form action="{{url_for('payment')}}" method="POST">
         <script
             src="https://checkout.stripe.com/checkout.js"
-            class="strip-button"
+            class="stripe-button"
             data-key={{public_key}}
             data-amount="1999"
             data-name="Puppy Adoption"
@@ -18,7 +18,5 @@
             data-zip-code="true">
         </script>
     </form>
-</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sunt reiciendis eaque consequatur eum excepturi fugiat veniam eos nobis, magnam sequi. Doloremque velit, ducimus natus molestias autem soluta officiis obcaecati.</p>
 
 {% endblock %}
